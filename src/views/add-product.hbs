@@ -1,0 +1,41 @@
+{{#each errors}}
+<div class="alert alert-danger" role="alert">
+  {{text}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/each}}
+
+<div class="col-md-6 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h1>Agregar Productos</h1>
+        </div>
+        
+        <div class="card-footer">
+            <form action="/new-product" method="POST">
+                <div class="form-group">
+                    <input type="text"  name="nombre_producto" placeholder="nombre_producto" value="{{nombre_producto}}" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="categoria" value="{{categoria}}" placeholder="Categoria" class="form-control"  >
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" value="{{descripcion}}" placeholder="descripcion" class="form-control"  >
+                </div>
+                <div class="form-group">
+                    <input type="text" name="precio" value="{{precio}}" placeholder="precio" class="form-control"   >
+                </div>
+                <div class="form-group">
+                    <input type="text" name="foto" value="{{foto}}" placeholder="Agregar foto" class="form-control"  >
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descuento" value="{{descuento}}" placeholder="descuento" class="form-control"  >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Agregar
+                </button>
+            </form>
+        </div>
+
+    </div>
+</div>

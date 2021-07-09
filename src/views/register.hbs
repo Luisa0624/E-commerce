@@ -1,0 +1,38 @@
+{{#each errors}}
+<div class="alert alert-danger" role="alert">
+  {{text}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/each}}
+
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>Registro</h1>
+        </div>
+        
+        <div class="card-footer">
+            <form action="/new-user" method="POST">
+                <div class="form-group">
+                    <input type="text"  name="nombre_usuario" value="{{nombre_usuario}}" placeholder="Nombre Completo"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" value="{{email}}" placeholder="Correo Electronico" class="form-control"  >
+                </div>
+                <div class="form-group">
+                    <input type="number" name="telefono" value="{{telefono}}" placeholder="Telefono" class="form-control"   pattern="[0-9]{8,10}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="direccion" value="{{direccion}}" placeholder="Dirección" class="form-control"  >
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Contraseña" class="form-control"  >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Registrarse
+                </button>
+            </form>
+        </div>
+
+    </div>
+</div>
