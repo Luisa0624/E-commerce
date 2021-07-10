@@ -1,6 +1,5 @@
 const Product = require('../models/products')
 const {Router} = require('express');
-const router = Router();
 
 let addProduct = async (req, res) =>{
     const {nombre_producto, categoria, descripcion, promocion, precio, foto, descuento} = req.body;
@@ -57,6 +56,91 @@ const allProduct = async (req, res) => {
     });
   };
 
+  const ProductSale = async (req, res) => {
+    await Product.find({promocion: 'Si'}).then((documentos) => {
+      console.log(documentos._id)
+      const productos = {
+        Productos: documentos.map((documento) => {
+          return {
+              id: documento.id,
+              nombre_producto: documento.nombre_producto,
+              descuento:documento.descuento,
+              foto: documento.foto,
+              descripcion: documento.descripcion,
+              precio: documento.precio,
+              
+          };
+        }),
+      };
+      res.render("promociones", {
+        productos: productos.Productos,
+      });
+    });
+  };
+
+  const ProductTech = async (req, res) => {
+    await Product.find({categoria: 'Tecnologia'}).then((documentos) => {
+      console.log(documentos._id)
+      const productos = {
+        Productos: documentos.map((documento) => {
+          return {
+              id: documento.id,
+              nombre_producto: documento.nombre_producto,
+              foto: documento.foto,
+              descripcion: documento.descripcion,
+              precio: documento.precio,
+              
+          };
+        }),
+      };
+      res.render("./filtros/tecnologia", {
+        productos: productos.Productos,
+      });
+    });
+  };
+
+  const ProductDep = async (req, res) => {
+    await Product.find({categoria: 'Deporte'}).then((documentos) => {
+      console.log(documentos._id)
+      const productos = {
+        Productos: documentos.map((documento) => {
+          return {
+              id: documento.id,
+              nombre_producto: documento.nombre_producto,
+              foto: documento.foto,
+              descripcion: documento.descripcion,
+              precio: documento.precio,
+              
+          };
+        }),
+      };
+      res.render("./filtros/deporte", {
+        productos: productos.Productos,
+      });
+    });
+  };
+
+  const ProductHome = async (req, res) => {
+    await Product.find({categoria: 'Hogar'}).then((documentos) => {
+      console.log(documentos._id)
+      const productos = {
+        Productos: documentos.map((documento) => {
+          return {
+              id: documento.id,
+              nombre_producto: documento.nombre_producto,
+              foto: documento.foto,
+              descripcion: documento.descripcion,
+              precio: documento.precio,
+              
+          };
+        }),
+      };
+      res.render("./filtros/hogar", {
+        productos: productos.Productos,
+      });
+    });
+  };
+
   const editProduct = async(req,res) =>{
     const productos = await Product.findById(req.params.id).lean()
     console.log(productos)
@@ -74,4 +158,4 @@ const deleteProduct = async(req,res)=>{
   await Product.findByIdAndDelete(req.params.id)
   res.redirect("/catalogo");
 }
-module.exports={addProduct, allProduct, editProduct, updateProduct, deleteProduct}
+module.exports={addProduct, allProduct, editProduct, updateProduct, deleteProduct, ProductSale, ProductTech, ProductDep, ProductHome}

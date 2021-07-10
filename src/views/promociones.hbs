@@ -5,7 +5,7 @@
     E-commerce
   </a>
     <ul class="nav justify-content-end">
-        <li class="nav-item" >
+        <li class="nav-item">
         <a class="nav-link" href="/carrito"><img src="https://image.flaticon.com/icons/png/128/2611/2611181.png" width="30" height="30" class="d-inline-block align-top" alt="">
         </a>
         </li>
@@ -20,28 +20,19 @@
   </div>
  <br>
 <br>
-<div  class="col-md-10 mx-auto">
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd; border-radius: 90px;">
-  <form class="form-inline">
-    <h5>Caterogias:    </h5>
-    <a href="/catalogo"><button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 30px">Todos</button></a>
-    <a href="/tecnologia"><button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 30px">Tecnologia</button></a>
-    <a href="/hogar"><button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 30px">Hogar</button></a>
-   <a href="/deporte"><button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 30px">Deporte</button></a>
-  </form>
-</nav>
-</div>
-
-<br>
-<br>
 <div class="col-md-10 mx-auto">
 <div class="row ">
   {{#each productos}}
   <div class="col-md-3 mx-auto">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title"> {{nombre_producto}} </h4>        
+        <button class="btn btn-danger" style="border-radius: 70px; width:60px; height:40px; float:right">
+           {{descuento}}<i class="fas fa-percent"></i>
+        </button>
+        <h4 class="card-title"> {{nombre_producto}}   </h4>
+        <br>
         <button class="btn btn-success"><img class="card-img" src="{{foto}}"></button>
+         
         <p> {{descripcion}}  </p>
         <h5> {{precio}} </h5>
         <a href="/edit/{{id}}">
