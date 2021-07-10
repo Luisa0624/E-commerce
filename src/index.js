@@ -36,6 +36,7 @@ app.use(flash());
 
 //rutas
 app.use(require('./routes/index'));
+app.use(require('./routes/filter'));
 app.use(require('./routes/user'));
 app.use(require('./routes/car'));
 

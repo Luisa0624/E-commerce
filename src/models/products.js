@@ -7,6 +7,7 @@ const productSchema = new Schema ({
     descripcion: {type:String, required: true},
     precio: {type:String, required: true},
     foto: {type:String, required: true},
+    promocion: {type:String, required: true},
     descuento: {type:String}
 
 });

@@ -26,34 +26,35 @@
 <div class="col-md-6 mx-auto">
     <div class="card">
         <div class="card-header">
-            <h1>Agregar Productos</h1>
+            <h1>Actualizar Productos</h1>
         </div>
         
         <div class="card-footer">
-            <form action="/new-product" method="POST">
+            <form action="/edit/{{productos._id}}?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
-                    <input type="text"  name="nombre_producto" placeholder="nombre_producto" value="{{nombre_producto}}" class="form-control" autofocus>
+                    <input type="text"  name="nombre_producto" value="{{productos.nombre_producto}}" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="categoria" value="{{categoria}}" placeholder="Categoria" class="form-control"  >
+                    <input type="text" name="categoria" value="{{productos.categoria}}"  class="form-control"  >
                 </div>
                 <div class="form-group">
-                    <input type="text" name="descripcion" value="{{descripcion}}" placeholder="descripcion" class="form-control"  >
+                    <input type="text" name="descripcion" value="{{productos.descripcion}}"  class="form-control"  >
                 </div>
                 <div class="form-group">
-                    <input type="text" name="precio" value="{{precio}}" placeholder="precio" class="form-control"   >
+                    <input type="text" name="precio" value="{{productos.precio}}"  class="form-control"   >
                 </div>
                 <div class="form-group">
-                    <input type="text" name="foto" value="{{foto}}" placeholder="Agregar foto" class="form-control"  >
+                    <input type="text" name="foto" value="{{productos.foto}}"  class="form-control"  >
                 </div>
                 <div class="form-group">
-                    <input type="text" name="promocion" value="{{promocion}}" placeholder="Promocion Si o No" class="form-control"  >
+                    <input type="text" name="promocion" value="{{productos.promocion}}"  class="form-control"  >
                 </div>
                 <div class="form-group">
-                    <input type="text" name="descuento" value="{{descuento}}" placeholder="descuento" class="form-control"  >
+                    <input type="text" name="descuento" value="{{productos.descuento}}"  class="form-control"  >
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
-                    Agregar
+                    Actualizar
                 </button>
             </form>
         </div>
