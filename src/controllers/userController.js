@@ -19,9 +19,7 @@ let addUser = async (req, res) =>{
     if(!password){
         errors.push({text: 'Por favor ingresar el precio del producto'})
     }
-    if(password.length < 8){
-        errors.push({text: 'La contraseña debe tener mas de 8 caracteres'})
-    }
+    
     if(emailUser){
         errors.push({text: 'EL email ya esta registrado'})
     }

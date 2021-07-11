@@ -35,9 +35,10 @@ app.use(passport.session());
 app.use(flash());
 
 //rutas
-app.use(require('./routes/index'));
+app.use( require('./routes/index'));
 app.use(require('./routes/filter'));
-app.use(require('./routes/user'));
+app.use(require('./routes/ingreso'));
+app.use(require('./routes/registro'));
 
 //vairables 
 app.use((req, res, next) => {
